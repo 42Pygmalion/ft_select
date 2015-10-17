@@ -19,4 +19,12 @@
 # define CMD_C		3
 # define CMD_A		1
 
+typedef struct 		s_select
+{
+	char			*name;
+	int				type;
+	struct s_select	*next;
+	struct s_select	*prev;
+}					t_select;
+
 #endif

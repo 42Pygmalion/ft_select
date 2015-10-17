@@ -92,7 +92,7 @@ int					ft_isspace(int c);
 char				*ft_reverse(char *str);
 int					ft_intlen(int n);
 int					ft_count_words(char const *s);
-void				ft_sort_int_tab(int *tab, unsigned int size);
+void				ft_sort_int_tab(int *sort, unsigned int size);
 int					ft_needs_sort(int one, int two);
 void				ft_swap(void *ptra, void *ptrb);
 void				ft_union(char *s1, char *s2);
