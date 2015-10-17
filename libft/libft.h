@@ -112,4 +112,6 @@ void				ft_putnbr_base_fd(int nb, int fd, char *base);
 
 int					get_next_line(int const fd, char **line);
 
+int					ft_putcmd(int c);
+
 #endif

@@ -22,9 +22,17 @@
 typedef struct 		s_select
 {
 	char			*name;
-	int				type;
+	int				highlight;
+	int 			underlined;
 	struct s_select	*next;
 	struct s_select	*prev;
 }					t_select;
+
+t_select			*new_list(char *arg, void *prev);
+t_select			*add_list(t_select *lst, char *arg);
+void				error_select(int error);
+struct termios		ft_init(void);
+void				input_needed(t_select *select);
+
 
 #endif

@@ -28,7 +28,7 @@ SRC = ft_strmap.c ft_striteri.c ft_striter.c ft_strclr.c ft_strdel.c \
 	ft_hidenp.c ft_rotone.c ft_epur_str.c ft_nospace_strlen.c ft_lstpush.c \
 	ft_power.c ft_abs.c ft_strlower.c ft_strupper.c ft_sort_ascii_list.c \
 	ft_sort_ascii_string.c ft_putnbr_base.c ft_putnbr_base_fd.c \
-	ft_freecontent.c get_next_line.c
+	ft_freecontent.c get_next_line.c ft_putcmd.c
 
 NAMEO = $(SRC:.c=.o)
 
