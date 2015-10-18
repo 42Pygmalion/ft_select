@@ -1,6 +1,6 @@
 NAME = ft_select
 
-SRC = ft_select.c list.c input.c
+SRC = ft_select.c list.c input.c signals.c
 
 OBJ = $(SRC:.c=.o) 
 

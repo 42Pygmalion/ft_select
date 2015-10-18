@@ -6,21 +6,23 @@ void				error_select(int error)
 
 	if (error == 0)
 		ft_putendl_fd("Needs at least one argument.", 2);
-	if (error == 1)
+	else if (error == -1)
 		ft_putendl_fd("Incomplete environment.", 2);
-	if (error == 7)
+	else if (error == -7)
 		ft_putendl_fd("Fine.", 1);
+	else if (error == -8)
+		ft_putendl_fd("Error ioctl().", 2);
 	tcgetattr(0, &term);
 	term.c_lflag = (ICANON | ECHO);
 	tcsetattr(0, 0, &term);
-	exit(-1);
+	exit(error);
 }
 
 struct termios		ft_init(void)
 {
 	struct termios	term;
 
-	tgetent(NULL, getenv("TERM")) != ERR ? tcgetattr(0, &term) : error_select(1);
+	tgetent(NULL, getenv("TERM")) != ERR ? tcgetattr(0, &term) : error_select(-1);
 	term.c_lflag &= ~(ICANON | ECHO);
 	term.c_cc[VMIN] = 1;
 	term.c_cc[VTIME] = 0;
@@ -52,7 +54,7 @@ void				ft_select(t_select *select, struct termios term)
 	(void)term;
 }
 
-int					main(int ac, char **av, char **env)
+int					main(int ac, char **av)
 {
 	struct termios	term;
 	t_select		*select;
@@ -63,8 +65,7 @@ int					main(int ac, char **av, char **env)
 	ac > 1 ? term = ft_init() : error_select(0);
 	while (av[i])
 		select = add_list(select, av[i++]);
+	check_signals();
 	ft_select(select, term);
-	error_select(7);
-	(void)env;
     return (0);
 }

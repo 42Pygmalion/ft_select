@@ -28,6 +28,8 @@ typedef struct 		s_select
 	struct s_select	*prev;
 }					t_select;
 
+extern int g_winch;
+
 t_select			*new_list(char *arg, void *prev);
 t_select			*add_list(t_select *lst, char *arg);
 void				error_select(int error);
